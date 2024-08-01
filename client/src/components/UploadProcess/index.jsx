@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { motion } from 'framer-motion'
 import Cookies from 'js-cookie'
 
-const UploadProcess = ({ onUploadSuccess }) => {
+const UploadProcess = () => {
   const [selectedFiles, setSelectedFiles] = useState([])
   const [author, setAuthor] = useState('')
   const [isLoading, setIsLoading] = useState(false)
@@ -45,16 +45,7 @@ const UploadProcess = ({ onUploadSuccess }) => {
         headers: { 'Content-Type': 'multipart/form-data' }
       })
       setIsLoading(false)
-      onUploadSuccess() // Call this function after successful upload
-      
-      const hasUploadedBefore = Cookies.get('hasUploadedBefore')
-      
-      if (!hasUploadedBefore) {
-        Cookies.set('hasUploadedBefore', 'true', { expires: 365 })
-        navigate('/thank-you')
-      } else {
-        navigate('/view')
-      }
+      navigate('/thank-you')
     } catch (error) {
       console.error('Upload failed:', error)
       setIsLoading(false)
