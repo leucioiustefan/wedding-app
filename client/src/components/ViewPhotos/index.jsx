@@ -13,7 +13,7 @@ const ViewPhotos = () => {
     const fetchPhotos = async () => {
       try {
         setLoading(true)
-        const response = await axios.get('http://localhost:5000/api/photos')
+        const response = await axios.get('https://api.wedding-app.click/photos')
         setPhotos(response.data)
         setError(null)
       } catch (error) {

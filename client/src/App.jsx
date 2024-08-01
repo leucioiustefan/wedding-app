@@ -1,12 +1,9 @@
-import React, { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'
+import  { useState, useEffect } from 'react'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import axios from 'axios'
 import Header from './components/Header'
-import Footer from './components/Footer'
 import LandingPage from './components/LandingPage'
 import UploadProcess from './components/UploadProcess'
-import ViewPhotos from './components/ViewPhotos'
-import ThankYouPage from './components/ThankYouPage'
 import './index.css'
 
 function App() {
@@ -15,7 +12,7 @@ function App() {
   useEffect(() => {
     const checkUploadedPhotos = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/photos')
+        const response = await axios.get('http://api.wedding-app.click/photos')
         setHasUploadedPhotos(response.data.length > 0)
       } catch (error) {
         console.error('Failed to check for uploaded photos:', error)

@@ -73,7 +73,7 @@ async function getPhotosFromDirectory(dir, author) {
 }
 
 // Upload photos
-app.post('/api/upload', upload.array('photos'), async (req, res) => {
+app.post('/upload', upload.array('photos'), async (req, res) => {
   try {
     if (!req.body.author) {
       return res.status(400).json({ error: 'Author name is required' });
@@ -103,7 +103,7 @@ app.post('/api/upload', upload.array('photos'), async (req, res) => {
 });
 
 // Get all photos
-app.get('/api/photos', async (req, res) => {
+app.get('/photos', async (req, res) => {
   try {
     const uploadsDir = path.join(__dirname, '..', 'uploads');
     const items = await fs.readdir(uploadsDir);
@@ -134,7 +134,7 @@ app.get('/api/photos', async (req, res) => {
 });
 
 // Get recent photos (for carousel)
-app.get('/api/photos/recent', async (req, res) => {
+app.get('/photos/recent', async (req, res) => {
   try {
     const uploadsDir = path.join(__dirname, '..', 'uploads');
     const items = await fs.readdir(uploadsDir);

@@ -41,7 +41,7 @@ const UploadProcess = ({ onUploadSuccess }) => {
     formData.append('author', author)
 
     try {
-      await axios.post('http://localhost:5000/api/upload', formData, {
+      await axios.post('https://api.wedding-app.click/upload', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       })
       setIsLoading(false)
