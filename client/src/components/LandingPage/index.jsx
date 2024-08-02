@@ -2,10 +2,14 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import PhotoCarousel from '../PhotoCarousel';
 import img1 from '../../images/slideshow1.jpeg';
+import img2 from '../../images/slideshow2.jpg';
+import img3 from '../../images/slideshow3.jpg';
+import img4 from '../../images/slideshow4.jpg';
+
 
 const LandingPage = () => {
   const navigate = useNavigate()
-  const recentPhotos = [img1];
+  const recentPhotos = [img1, img2, img3, img4];
 
   return (
     <motion.div 
